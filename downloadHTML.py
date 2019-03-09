@@ -3,14 +3,13 @@ from urllib import robotparser
 from urllib.parse import urljoin
 
 import requests
-from chp1.throttle import Throttle
+from throttle import Throttle
 
 
 def download(url, num_retries=2, user_agent='wswp', proxies=None):
     """ Download a given URL and return the page content
         args:
             url (str): URL
-        kwargs:
             user_agent (str): user agent (default: wswp)
             proxies (dict): proxy dict w/ keys 'http' and 'https', values
                             are strs (i.e. 'http(s)://IP') (default: None)
@@ -31,6 +30,31 @@ def download(url, num_retries=2, user_agent='wswp', proxies=None):
         print('Download error:', e)
         html = None
     return html
+
+
+"""
+If not using Requests (more convenient package than urllib)
+"""
+"""
+def download(url, user_agent='fan', retries=2, charset='utf-8'):
+    print('Downloading:', url)
+    request = urllib.request.Request(url)
+    request.add_header('User-agent', user_agent)
+    try:
+        resp = urllib.request.urlopen(request)
+        #to get the returned html as string instead of bytes
+        cs = resp.headers.get_content_charset()
+        if not cs:
+            cs = charset
+        html = resp.read().decode(cs)
+    except(URLError, HTTPError, ContentTooShortError) as e:
+        print('Downloading error:', e.reason)
+        html = None
+        if retries >0:
+            if hasattr(e, 'code') and 500 <= e.code < 600:
+                return download(url, retries-1)
+    return html
+"""
 
 
 def get_robots_parser(robots_url):
