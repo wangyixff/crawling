@@ -1,0 +1,10 @@
+There is no universal crawling script.
+1. Play the rules : read the website policy and robots.txt file
+2. Analyze the returning contents. The following added the add_header. 
+
+req = urllib.request.Request('https://www.xxx.ca/find/abc.html?cid=search-abc')
+req.add_header('Accept', 'application/json,application/xml')
+urllib.request.urlopen(req).read().decode('utf-8').find('Market ') > 0
+returningstring=urllib.request.urlopen(req).read().decode('utf-8')
+with open("page.html", "w") as file:
+    file.write(returningstring)

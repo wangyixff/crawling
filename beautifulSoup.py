@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import pandas as pd
-
+from downloadHTML import download
 
 #parsing the html page content, reading the tables
 x=download('https://en.wikipedia.org/wiki/List_of_postal_codes_of_Canada:_M')
