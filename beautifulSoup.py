@@ -1,4 +1,5 @@
 from bs4 import BeautifulSoup
+import pandas as pd
 
 
 #parsing the html page content, reading the tables
