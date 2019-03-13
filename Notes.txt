@@ -3,6 +3,7 @@ There is no universal crawling script.
 2. Analyze the returning contents. The following added the add_header. 
 3. Use browser (also try different browsers to find things) to inspect Network requests and responses. Every website is different. Find the
 useful url (xhr response, search related if that's the purpose) in the meaningful files (eg, search.json)..
+4. Url contents download, dynamic webpage scraping
 
 req = urllib.request.Request('https://www.xxx.ca/find/abc.html?cid=search-abc')
 req.add_header('Accept', 'application/json,application/xml')
