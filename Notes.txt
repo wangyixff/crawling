@@ -4,6 +4,7 @@ There is no universal crawling script.
 3. Use browser (also try different browsers to find things) to inspect Network requests and responses. Every website is different. Find the
 useful url (xhr response, search related if that's the purpose) in the meaningful files (eg, search.json)..
 4. Url contents download, dynamic webpage scraping
+5. picture related
 
 req = urllib.request.Request('https://www.xxx.ca/find/abc.html?cid=search-abc')
 req.add_header('Accept', 'application/json,application/xml')
@@ -17,3 +18,4 @@ with open("sportschek.html", "w") as file:
     file.write(htmlstring)
 
 It will return the search results. Can change display page and count in the url so you get all the results.
+
