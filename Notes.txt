@@ -1,6 +1,8 @@
 There is no universal crawling script.
 1. Play the rules : read the website policy and robots.txt file
 2. Analyze the returning contents. The following added the add_header. 
+3. Use browser to inspect Network requests and responses. Every website is different. Find the
+useful url in the meaningful files..
 
 req = urllib.request.Request('https://www.xxx.ca/find/abc.html?cid=search-abc')
 req.add_header('Accept', 'application/json,application/xml')
@@ -8,3 +10,9 @@ urllib.request.urlopen(req).read().decode('utf-8').find('Market ') > 0
 returningstring=urllib.request.urlopen(req).read().decode('utf-8')
 with open("page.html", "w") as file:
     file.write(returningstring)
+
+htmlstring=download('https://www.sportchek.ca/services/sportchek/search-and-promote/products?q=pants+men+helly&page=1&count=18',)
+with open("sportschek.html", "w") as file:
+    file.write(htmlstring)
+
+It will return the search results. Can change display page and count in the url so you get all the results.
