@@ -20,3 +20,5 @@ with open("sportschek.html", "w") as file:
 It will return the search results. Can change display page and count in the url so you get all the results.
 
 Last hunt web will return the search json file.
+
+local data store
