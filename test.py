@@ -1,4 +1,3 @@
-from bs4 import BeautifulSoup
 import pandas as pd
 import requests
 from requests import get
@@ -23,6 +22,7 @@ brand = [] #string
 availability = [] #string
 clearancePrice = [] #boolean
 features = [] #ul list strings
+imageAndColor = [] #list
 inStock = [] # boolean
 longDescription = [] #string
 onlineOnly = [] #boolean
@@ -36,6 +36,7 @@ for product in products:
     availability.append(product["availability"])
     clearancePrice.append(product["clearancePrice"])
     features.append(product["features"])
+    imageAndColor.append(product["imageAndColor"])
     inStock.append(product["inStock"])
     longDescription.append(product["longDescription"])
     onlineOnly.append(product["onlineOnly"])
@@ -48,6 +49,7 @@ df['brand'] = brand
 df['availability'] = availability
 df['clearancePrice'] = clearancePrice
 df['features'] = features
+df['imageAndColor'] = imageAndColor
 df['inStock']= inStock
 df['longDescription'] = longDescription
 df['onlineOnly'] = onlineOnly
